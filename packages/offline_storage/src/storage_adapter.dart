@@ -1,3 +1,5 @@
+import 'query/query_builder.dart';
+
 abstract interface class StorageAdapter {
   /// Initializes the storage engine.
   Future<void> initialize();
@@ -20,6 +22,8 @@ abstract interface class StorageAdapter {
 
   /// Returns whether a record exists.
   Future<bool> exists({required String collection, required String key});
+
+  QueryBuilder query(String collection);
 
   /// Releases any resources held by the storage engine.
   Future<void> close();
